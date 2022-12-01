@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import Loadscreen from "../Reusables/Loadscreen";
 
 function Detail() {
+
   const id = useParams().id;
   let [blog, setBlog] = useState(null);
 
@@ -16,10 +17,10 @@ function Detail() {
   }
 
   useEffect(() => {
-    getData(`http://localhost:3000/blogs?id=${id}`);
+    getData('http://localhost:3000/blogs?id='+id);
   }, [id]);
 
-  return (
+  return (   
     <div className="detail">
       {blog
         ? blog.map((blogData) => {
@@ -38,6 +39,7 @@ function Detail() {
         : <Loadscreen />}
     </div>
   );
+
 }
 
 export default Detail;

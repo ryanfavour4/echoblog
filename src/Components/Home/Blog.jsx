@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Echologo from "../../Images/echologo.png";
 import "./Blog.style.css";
 
-const Blog = ({ blog }) => {
+const Blog = ({blog}) => {
   return (
     <div className="blog_box">
       <div className="blog_img">
@@ -14,7 +14,9 @@ const Blog = ({ blog }) => {
         </Link>
       </div>
       <div className="blog_para">
-        <p className="paragraph">{blog.paragraph}</p>
+        <p className="paragraph">
+          {blog.paragraph}
+        </p>
       </div>
       <div className="blog_author">
         <cite>~ {blog.author} ~</cite>
