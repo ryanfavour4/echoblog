@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Home from "./Pages/Home";
+import Detail from "./Pages/Detail";
 
 function App() {
+  const [data, setData] = useState(null);
+
+  async function getData(url) {
+    axios
+      .get(url)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err, "Error"));
+  }
+
+
+  useEffect(() => {
+    getData("http://localhost:3000/blogs");
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home data={data} />} />
+          <Route path="/detail/:id" element={<Detail />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

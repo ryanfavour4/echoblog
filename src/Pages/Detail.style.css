@@ -1,0 +1,26 @@
+.detail {
+  background-color:rgb(49, 49, 49);
+  min-height: 100vh;
+}
+
+.detail > div{
+  /* padding: 1em; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:0.5em;
+}
+
+.detail > div h2{
+  background:linear-gradient(rgba(87, 63, 45, 0.5),rgba(15, 15, 13, 0.5)), url('../Images/echologo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3em 1em;
+  text-align: center;
+}
+
+.detail  > div p{
+  padding: 10px 1em;
+}
